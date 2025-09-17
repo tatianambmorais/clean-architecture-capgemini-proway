@@ -1,7 +1,7 @@
 package org.example.listagemFuncionario.useCases;
 
 
-import org.example.listagemFuncionario.model.Funcionario;
+import org.example.listagemFuncionario.domain.Funcionario;
 import org.example.listagemFuncionario.repository.FuncionarioRepository;
 
 import java.util.ArrayList;

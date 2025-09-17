@@ -1,7 +1,6 @@
 package org.example.cadastroDeAlunos.tests;
 
-import org.example.cadastroDeAlunos.model.Aluno;
-import org.example.cadastroDeAlunos.repository.AlunoRepository;
+import org.example.cadastroDeAlunos.domain.Aluno;
 import org.example.cadastroDeAlunos.repository.AlunoRepositoryEmMemoria;
 import org.example.cadastroDeAlunos.useCases.CadastrarAlunoUseCase;
 import org.junit.jupiter.api.BeforeEach;

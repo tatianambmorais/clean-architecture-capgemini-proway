@@ -1,8 +1,8 @@
-package org.example.listagemFuncionario.model.mapper;
+package org.example.listagemFuncionario.domain.mapper;
 
 
-import org.example.listagemFuncionario.model.Funcionario;
-import org.example.listagemFuncionario.model.dto.FuncionarioResponseDTO;
+import org.example.listagemFuncionario.domain.Funcionario;
+import org.example.listagemFuncionario.domain.model.FuncionarioResponseDTO;
 
 public class FuncionarioMapper {
 

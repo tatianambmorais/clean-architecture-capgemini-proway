@@ -1,4 +1,4 @@
-package org.example.listagemFuncionario.model;
+package org.example.listagemFuncionario.domain;
 
 import java.math.BigDecimal;
 

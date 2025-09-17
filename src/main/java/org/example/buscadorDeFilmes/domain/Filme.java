@@ -1,4 +1,4 @@
-package org.example.buscadorDeFilmes.model;
+package org.example.buscadorDeFilmes.domain;
 
 public class Filme {
     private String titulo;

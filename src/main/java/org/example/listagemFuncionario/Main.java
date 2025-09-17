@@ -2,7 +2,7 @@ package org.example.listagemFuncionario;
 
 
 import org.example.listagemFuncionario.controller.FuncionarioController;
-import org.example.listagemFuncionario.model.dto.FuncionarioResponseDTO;
+import org.example.listagemFuncionario.domain.model.FuncionarioResponseDTO;
 import org.example.listagemFuncionario.repository.FuncionarioRepository;
 import org.example.listagemFuncionario.repository.FuncionarioRepositoryEmMemoria;
 import org.example.listagemFuncionario.useCases.ListarFuncionarioUseCase;

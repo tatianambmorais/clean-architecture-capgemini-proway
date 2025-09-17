@@ -1,6 +1,6 @@
 package org.example.buscadorDeFilmes.tests;
 
-import org.example.buscadorDeFilmes.model.Filme;
+import org.example.buscadorDeFilmes.domain.Filme;
 import org.example.buscadorDeFilmes.repository.FilmeRepositoryEmMemoria;
 import org.example.buscadorDeFilmes.useCases.BuscadorFilmeUseCase;
 import org.junit.jupiter.api.BeforeEach;

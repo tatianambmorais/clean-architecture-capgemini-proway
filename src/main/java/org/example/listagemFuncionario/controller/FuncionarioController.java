@@ -1,8 +1,8 @@
 package org.example.listagemFuncionario.controller;
 
 
-import org.example.listagemFuncionario.model.dto.FuncionarioResponseDTO;
-import org.example.listagemFuncionario.model.mapper.FuncionarioMapper;
+import org.example.listagemFuncionario.domain.model.FuncionarioResponseDTO;
+import org.example.listagemFuncionario.domain.mapper.FuncionarioMapper;
 import org.example.listagemFuncionario.useCases.ListarFuncionarioUseCase;
 
 import java.util.List;

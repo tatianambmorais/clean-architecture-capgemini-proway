@@ -1,7 +1,7 @@
 package org.example.cadastroDeAlunos.useCases;
 
 
-import org.example.cadastroDeAlunos.model.Aluno;
+import org.example.cadastroDeAlunos.domain.Aluno;
 import org.example.cadastroDeAlunos.repository.AlunoRepository;
 
 public class CadastrarAlunoUseCase {

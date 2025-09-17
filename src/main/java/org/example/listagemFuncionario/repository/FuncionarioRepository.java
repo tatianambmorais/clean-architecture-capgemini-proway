@@ -1,6 +1,6 @@
 package org.example.listagemFuncionario.repository;
 
-import org.example.listagemFuncionario.model.Funcionario;
+import org.example.listagemFuncionario.domain.Funcionario;
 
 import java.util.List;
 

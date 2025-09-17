@@ -1,4 +1,4 @@
-package org.example.cadastroDeAlunos.model;
+package org.example.cadastroDeAlunos.domain;
 
 
 public class Aluno {

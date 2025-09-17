@@ -1,6 +1,6 @@
 package org.example.listagemFuncionarios.tests;
 
-import org.example.listagemFuncionario.model.Funcionario;
+import org.example.listagemFuncionario.domain.Funcionario;
 import org.example.listagemFuncionario.repository.FuncionarioRepositoryEmMemoria;
 import org.example.listagemFuncionario.useCases.ListarFuncionarioUseCase;
 import org.junit.jupiter.api.BeforeEach;

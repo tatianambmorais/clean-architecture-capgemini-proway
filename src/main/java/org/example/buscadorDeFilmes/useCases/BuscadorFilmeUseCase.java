@@ -1,6 +1,6 @@
 package org.example.buscadorDeFilmes.useCases;
 
-import org.example.buscadorDeFilmes.model.Filme;
+import org.example.buscadorDeFilmes.domain.Filme;
 import org.example.buscadorDeFilmes.repository.FilmeRepository;
 
 import java.util.Optional;

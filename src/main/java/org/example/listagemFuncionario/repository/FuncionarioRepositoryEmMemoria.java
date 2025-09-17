@@ -1,7 +1,7 @@
 package org.example.listagemFuncionario.repository;
 
 
-import org.example.listagemFuncionario.model.Funcionario;
+import org.example.listagemFuncionario.domain.Funcionario;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

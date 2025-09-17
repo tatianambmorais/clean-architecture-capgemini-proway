@@ -1,7 +1,7 @@
 package org.example.cadastroDeAlunos.repository;
 
 
-import org.example.cadastroDeAlunos.model.Aluno;
+import org.example.cadastroDeAlunos.domain.Aluno;
 
 import java.util.List;
 

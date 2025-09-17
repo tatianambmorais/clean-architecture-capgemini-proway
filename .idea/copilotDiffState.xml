@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/domain/Lanche.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/domain/Lanche.java" />
+              <option name="updatedContent" value="package domain;&#10;&#10;public class Lanche {&#10;    private final String nome;&#10;    private final double preco;&#10;    private boolean disponivel;&#10;&#10;    public Lanche(String nome, double preco, boolean disponivel) {&#10;        this.nome = nome;&#10;        this.preco = preco;&#10;        this.disponivel = disponivel;&#10;    }&#10;&#10;    public String getNome() { return nome; }&#10;    public double getPreco() { return preco; }&#10;    public boolean isDisponivel() { return disponivel; }&#10;    public void setDisponivel(boolean disponivel) { this.disponivel = disponivel; }&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/domain/LancheRepository.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/domain/LancheRepository.java" />
+              <option name="updatedContent" value="package domain;&#10;&#10;import java.util.List;&#10;&#10;public interface LancheRepository {&#10;    void salvar(Lanche lanche);&#10;    List&lt;Lanche&gt; listarDisponiveis();&#10;    Lanche buscarPorNome(String nome);&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/domain/Pedido.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/domain/Pedido.java" />
+              <option name="updatedContent" value="package domain;&#10;&#10;import java.util.ArrayList;&#10;import java.util.List;&#10;&#10;public class Pedido {&#10;    public enum Status { ABERTO, FINALIZADO }&#10;&#10;    private final List&lt;Lanche&gt; lanches = new ArrayList&lt;&gt;();&#10;    private double valorTotal = 0.0;&#10;    private Status status = Status.ABERTO;&#10;&#10;    public List&lt;Lanche&gt; getLanches() { return lanches; }&#10;    public double getValorTotal() { return valorTotal; }&#10;    public Status getStatus() { return status; }&#10;&#10;    public void adicionarLanche(Lanche lanche) {&#10;        if (status == Status.FINALIZADO)&#10;            throw new IllegalStateException(&quot;Pedido já finalizado.&quot;);&#10;        if (!lanche.isDisponivel())&#10;            throw new IllegalArgumentException(&quot;Lanche indisponível.&quot;);&#10;        lanches.add(lanche);&#10;        valorTotal += lanche.getPreco();&#10;    }&#10;&#10;    public void finalizar() {&#10;        status = Status.FINALIZADO;&#10;    }&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/domain/PedidoRepository.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/domain/PedidoRepository.java" />
+              <option name="updatedContent" value="package domain;&#10;&#10;import java.util.List;&#10;&#10;public interface PedidoRepository {&#10;    void salvar(Pedido pedido);&#10;    Pedido buscarPorId(int id);&#10;    List&lt;Pedido&gt; listarTodos();&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infra/InMemoryLancheRepository.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/infra/InMemoryLancheRepository.java" />
+              <option name="updatedContent" value="package infra;&#10;&#10;import domain.Lanche;&#10;import domain.LancheRepository;&#10;&#10;import java.util.ArrayList;&#10;import java.util.List;&#10;&#10;public class InMemoryLancheRepository implements LancheRepository {&#10;    private final List&lt;Lanche&gt; lanches = new ArrayList&lt;&gt;();&#10;&#10;    public void salvar(Lanche lanche) {&#10;        lanches.add(lanche);&#10;    }&#10;&#10;    public List&lt;Lanche&gt; listarDisponiveis() {&#10;        List&lt;Lanche&gt; disponiveis = new ArrayList&lt;&gt;();&#10;        for (Lanche l : lanches) {&#10;            if (l.isDisponivel()) disponiveis.add(l);&#10;        }&#10;        return disponiveis;&#10;    }&#10;&#10;    public Lanche buscarPorNome(String nome) {&#10;        for (Lanche l : lanches) {&#10;            if (l.getNome().equalsIgnoreCase(nome)) return l;&#10;        }&#10;        return null;&#10;    }&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infra/InMemoryPedidoRepository.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/infra/InMemoryPedidoRepository.java" />
+              <option name="updatedContent" value="package infra;&#10;&#10;import domain.Pedido;&#10;import domain.PedidoRepository;&#10;&#10;import java.util.ArrayList;&#10;import java.util.List;&#10;&#10;public class InMemoryPedidoRepository implements PedidoRepository {&#10;    private final List&lt;Pedido&gt; pedidos = new ArrayList&lt;&gt;();&#10;&#10;    public void salvar(Pedido pedido) {&#10;        if (!pedidos.contains(pedido)) pedidos.add(pedido);&#10;    }&#10;&#10;    public Pedido buscarPorId(int id) {&#10;        if (id &lt; 0 || id &gt;= pedidos.size()) return null;&#10;        return pedidos.get(id);&#10;    }&#10;&#10;    public List&lt;Pedido&gt; listarTodos() {&#10;        return new ArrayList&lt;&gt;(pedidos);&#10;    }&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/usecase/CadastrarLancheUseCase.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/usecase/CadastrarLancheUseCase.java" />
+              <option name="updatedContent" value="package usecase;&#10;&#10;import domain.Lanche;&#10;import domain.LancheRepository;&#10;&#10;public class CadastrarLancheUseCase {&#10;    private final LancheRepository repository;&#10;&#10;    public CadastrarLancheUseCase(LancheRepository repository) {&#10;        this.repository = repository;&#10;    }&#10;&#10;    public void executar(String nome, double preco, boolean disponivel) {&#10;        Lanche lanche = new Lanche(nome, preco, disponivel);&#10;        repository.salvar(lanche);&#10;    }&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/usecase/CriarPedidoUseCase.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/usecase/CriarPedidoUseCase.java" />
+              <option name="updatedContent" value="package usecase;&#10;&#10;import domain.*;&#10;&#10;import java.util.List;&#10;&#10;public class CriarPedidoUseCase {&#10;    private final PedidoRepository pedidoRepo;&#10;    private final LancheRepository lancheRepo;&#10;&#10;    public CriarPedidoUseCase(PedidoRepository pedidoRepo, LancheRepository lancheRepo) {&#10;        this.pedidoRepo = pedidoRepo;&#10;        this.lancheRepo = lancheRepo;&#10;    }&#10;&#10;    public Pedido executar(List&lt;String&gt; nomesLanches) {&#10;        Pedido pedido = new Pedido();&#10;        for (String nome : nomesLanches) {&#10;            Lanche lanche = lancheRepo.buscarPorNome(nome);&#10;            if (lanche == null)&#10;                throw new IllegalArgumentException(&quot;Lanche não encontrado: &quot; + nome);&#10;            pedido.adicionarLanche(lanche); // regras já validadas na entidade&#10;        }&#10;        pedidoRepo.salvar(pedido);&#10;        return pedido;&#10;    }&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/usecase/FinalizarPedidoUseCase.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/usecase/FinalizarPedidoUseCase.java" />
+              <option name="updatedContent" value="package usecase;&#10;&#10;import domain.Pedido;&#10;import domain.PedidoRepository;&#10;&#10;public class FinalizarPedidoUseCase {&#10;    private final PedidoRepository repository;&#10;&#10;    public FinalizarPedidoUseCase(PedidoRepository repository) {&#10;        this.repository = repository;&#10;    }&#10;&#10;    public void executar(int pedidoId) {&#10;        Pedido pedido = repository.buscarPorId(pedidoId);&#10;        if (pedido == null)&#10;            throw new IllegalArgumentException(&quot;Pedido não encontrado.&quot;);&#10;        pedido.finalizar();&#10;        repository.salvar(pedido);&#10;    }&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/usecase/ListarLanchesUseCase.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/usecase/ListarLanchesUseCase.java" />
+              <option name="updatedContent" value="package usecase;&#10;&#10;import domain.Lanche;&#10;import domain.LancheRepository;&#10;import java.util.List;&#10;&#10;public class ListarLanchesUseCase {&#10;    private final LancheRepository repository;&#10;&#10;    public ListarLanchesUseCase(LancheRepository repository) {&#10;        this.repository = repository;&#10;    }&#10;&#10;    public List&lt;Lanche&gt; executar() {&#10;        return repository.listarDisponiveis();&#10;    }&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,6 +1,6 @@
 package org.example.buscadorDeFilmes.repository;
 
-import org.example.buscadorDeFilmes.model.Filme;
+import org.example.buscadorDeFilmes.domain.Filme;
 
 import java.util.ArrayList;
 import java.util.Optional;
